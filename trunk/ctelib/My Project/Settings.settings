@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="ctelib_cteRecepcao_CteRecepcao" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRecepcao.asmx</Value>
+    </Setting>
+    <Setting Name="ctelib_cteRetRecepcao_CteRetRecepcao" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRetRecepcao.asmx</Value>
+    </Setting>
+    <Setting Name="ctelib_cteCancelamento_CteCancelamento" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteCancelamento.asmx</Value>
+    </Setting>
+    <Setting Name="ctelib_cteInutilizacao_CteInutilizacao" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteInutilizacao.asmx</Value>
+    </Setting>
+    <Setting Name="ctelib_cteConsulta_CteConsulta" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteConsulta.asmx</Value>
+    </Setting>
+    <Setting Name="ctelib_cteStatusServico_CteStatusServico" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteStatusServico.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

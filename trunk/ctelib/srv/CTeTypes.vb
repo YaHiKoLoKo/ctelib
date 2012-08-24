@@ -5278,7 +5278,17 @@ Namespace CTe.Types
     Private cTeField() As TCTe
 
     Private versaoField As String
-
+    Sub New()
+      MyBase.New()
+    End Sub
+    Sub New(ByVal numLote As Long, ByVal ParamArray CTes() As TCTe)
+      MyBase.New()
+      idLoteField = numLote
+      cTeField = CTes
+      If cTeField IsNot Nothing Then _
+      If cTeField.Length > 0 Then _
+      versaoField = cTeField(0).infCte.versao
+    End Sub
     '''<remarks/>
     Public Property idLote() As String
       Get
@@ -5310,6 +5320,29 @@ Namespace CTe.Types
         Me.versaoField = value
       End Set
     End Property
+    Public Function ToXMLNode() As Xml.XmlNode
+      Dim xDoc As New Xml.XmlDocument
+      xDoc.LoadXml(ToString)
+      Return xDoc.DocumentElement
+    End Function
+    Public Overrides Function ToString() As String
+      Dim xs As New XmlSerializer(Me.GetType)
+      Dim xmlns As New XmlSerializerNamespaces
+      xmlns.Add("", "http://www.portalfiscal.inf.br/cte")
+      Dim sw As New IO.StringWriter()
+      'Dim ms As New IO.MemoryStream
+      Dim tmp As String = IO.Path.GetTempFileName
+      Dim sw2 As New IO.StreamWriter(tmp, False, System.Text.Encoding.UTF8)
+      xs.Serialize(sw2, Me, xmlns)
+      Dim xmlDocument As New XmlDocument
+      sw2.Close()
+      xmlDocument.Load(tmp)
+      Dim r As String = xmlDocument.DocumentElement.OuterXml
+      IO.File.Delete(tmp)
+      Return r
+      'xs.Deserialize
+      Return MyBase.ToString()
+    End Function
   End Class
 
   '''<remarks/>
@@ -5358,6 +5391,29 @@ Namespace CTe.Types
         Me.versaoField = value
       End Set
     End Property
+    Public Function ToXMLNode() As Xml.XmlNode
+      Dim xDoc As New Xml.XmlDocument
+      xDoc.LoadXml(ToString)
+      Return xDoc.DocumentElement
+    End Function
+    Public Overrides Function ToString() As String
+      Dim xs As New XmlSerializer(Me.GetType)
+      Dim xmlns As New XmlSerializerNamespaces
+      xmlns.Add("", "http://www.portalfiscal.inf.br/cte")
+      Dim sw As New IO.StringWriter()
+      'Dim ms As New IO.MemoryStream
+      Dim tmp As String = IO.Path.GetTempFileName
+      Dim sw2 As New IO.StreamWriter(tmp, False, System.Text.Encoding.UTF8)
+      xs.Serialize(sw2, Me, xmlns)
+      Dim xmlDocument As New XmlDocument
+      sw2.Close()
+      xmlDocument.Load(tmp)
+      Dim r As String = xmlDocument.DocumentElement.OuterXml
+      IO.File.Delete(tmp)
+      Return r
+      'xs.Deserialize
+      Return MyBase.ToString()
+    End Function
   End Class
 
   '''<remarks/>
@@ -5649,6 +5705,26 @@ Namespace CTe.Types
         Me.versaoField = value
       End Set
     End Property
+
+    Public Function ToFile(ByVal onFolder As String) As Boolean
+      Try
+        Dim fname As String = GetFileName()
+        Dim fi As New IO.FileInfo(fname)
+        If fi.Exists Then fi.Delete()
+        IO.File.WriteAllBytes(fname, ToBytes)
+        IO.File.Move(fname, (onFolder & IO.Path.DirectorySeparatorChar & fname).Replace(New String(IO.Path.DirectorySeparatorChar, 2), IO.Path.DirectorySeparatorChar))
+        Return True
+      Catch ex As Exception
+        Return False
+      End Try
+    End Function
+    Public Function GetFileName() As String
+      Return Me.infCanc.chCTe & "-retCancCTe.xml"
+    End Function
+    Public Function ToBytes() As Byte()
+      Return System.Text.Encoding.UTF8.GetBytes(ToString)
+    End Function
+
     Public Function ToXMLNode() As Xml.XmlNode
       Dim xDoc As New Xml.XmlDocument
       xDoc.LoadXml(ToString)
@@ -7537,6 +7613,7 @@ Namespace CTe.Types
       tpAmb = Ambiente
       chCTeField = chaveAcesso
       versaoField = "1.04"
+      xServField = "CONSULTAR"
     End Sub
     '''<remarks/>
     Public Property tpAmb() As String
@@ -7655,6 +7732,29 @@ Namespace CTe.Types
         Me.versaoField = value
       End Set
     End Property
+    Public Function ToXMLNode() As Xml.XmlNode
+      Dim xDoc As New Xml.XmlDocument
+      xDoc.LoadXml(ToString)
+      Return xDoc.DocumentElement
+    End Function
+    Public Overrides Function ToString() As String
+      Dim xs As New XmlSerializer(Me.GetType)
+      Dim xmlns As New XmlSerializerNamespaces
+      xmlns.Add("", "http://www.portalfiscal.inf.br/cte")
+      Dim sw As New IO.StringWriter()
+      'Dim ms As New IO.MemoryStream
+      Dim tmp As String = IO.Path.GetTempFileName
+      Dim sw2 As New IO.StreamWriter(tmp, False, System.Text.Encoding.UTF8)
+      xs.Serialize(sw2, Me, xmlns)
+      Dim xmlDocument As New XmlDocument
+      sw2.Close()
+      xmlDocument.Load(tmp)
+      Dim r As String = xmlDocument.DocumentElement.OuterXml
+      IO.File.Delete(tmp)
+      Return r
+      'xs.Deserialize
+      Return MyBase.ToString()
+    End Function
   End Class
 
   '''<remarks/>

@@ -1,4 +1,514 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <CTeWebServices>
-  
-</CTeWebServices >
+  <AC>
+    <cUF>12</cUF>
+    <Producao>
+      <CTeRecepcao></CTeRecepcao>
+      <CTeRetRecepcao></CTeRetRecepcao>
+      <CTeCancelamento></CTeCancelamento>
+      <CTeInutilizacao></CTeInutilizacao>
+      <CTeConsultaProtocolo></CTeConsultaProtocolo>
+      <CTeStatusServico></CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao></CTeRecepcao>
+      <CTeRetRecepcao></CTeRetRecepcao>
+      <CTeCancelamento></CTeCancelamento>
+      <CTeInutilizacao></CTeInutilizacao>
+      <CTeConsultaProtocolo></CTeConsultaProtocolo>
+      <CTeStatusServico></CTeStatusServico>
+    </Homologacao>
+  </AC>
+  <AL>
+    <cUF>27</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+
+  </AL>
+  <AM>
+    <cUF>13</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </AM>
+  <AP>
+    <cUF>16</cUF>
+    <Producao>
+      <CTeRecepcao></CTeRecepcao>
+      <CTeRetRecepcao></CTeRetRecepcao>
+      <CTeCancelamento></CTeCancelamento>
+      <CTeInutilizacao></CTeInutilizacao>
+      <CTeConsultaProtocolo></CTeConsultaProtocolo>
+      <CTeStatusServico></CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao></CTeRecepcao>
+      <CTeRetRecepcao></CTeRetRecepcao>
+      <CTeCancelamento></CTeCancelamento>
+      <CTeInutilizacao></CTeInutilizacao>
+      <CTeConsultaProtocolo></CTeConsultaProtocolo>
+      <CTeStatusServico></CTeStatusServico>
+    </Homologacao>
+  </AP>
+  <BA>
+    <cUF>29</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </BA>
+  <CE>
+    <cUF>23</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </CE>
+  <DF>
+    <cUF>53</cUF>
+    <Producao>
+      <CTeRecepcao></CTeRecepcao>
+      <CTeRetRecepcao></CTeRetRecepcao>
+      <CTeCancelamento></CTeCancelamento>
+      <CTeInutilizacao></CTeInutilizacao>
+      <CTeConsultaProtocolo></CTeConsultaProtocolo>
+      <CTeStatusServico></CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao></CTeRecepcao>
+      <CTeRetRecepcao></CTeRetRecepcao>
+      <CTeCancelamento></CTeCancelamento>
+      <CTeInutilizacao></CTeInutilizacao>
+      <CTeConsultaProtocolo></CTeConsultaProtocolo>
+      <CTeStatusServico></CTeStatusServico>
+    </Homologacao>
+  </DF>
+  <ES>
+    <cUF>32</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </ES>
+  <GO>
+    <cUF>52</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+
+  </GO>
+  <MA>
+    <cUF>21</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </MA>
+  <MG>
+    <cUF>31</cUF>
+    <Producao>
+      <CTeRecepcao>https://cte.fazenda.mg.gov.br/cte/services/CteRecepcao</CTeRecepcao>
+      <CTeRetRecepcao>https://cte.fazenda.mg.gov.br/cte/services/CteRetRecepcao</CTeRetRecepcao>
+      <CTeCancelamento>https://cte.fazenda.mg.gov.br/cte/services/CteCancelamento</CTeCancelamento>
+      <CTeInutilizacao>https://cte.fazenda.mg.gov.br/cte/services/CteInutilizacao</CTeInutilizacao>
+      <CTeConsultaProtocolo>https://cte.fazenda.mg.gov.br/cte/services/CteConsulta</CTeConsultaProtocolo>
+      <CTeStatusServico>https://cte.fazenda.mg.gov.br/cte/services/CteStatusServico</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao>https://hcte.fazenda.mg.gov.br/cte/services/CteRecepcao</CTeRecepcao>
+      <CTeRetRecepcao>https://hcte.fazenda.mg.gov.br/cte/services/CteRetRecepcao</CTeRetRecepcao>
+      <CTeCancelamento>https://hcte.fazenda.mg.gov.br/cte/services/CteCancelamento</CTeCancelamento>
+      <CTeInutilizacao>https://hcte.fazenda.mg.gov.br/cte/services/CteInutilizacao</CTeInutilizacao>
+      <CTeConsultaProtocolo>https://hcte.fazenda.mg.gov.br/cte/services/CteConsulta</CTeConsultaProtocolo>
+      <CTeStatusServico>https://hcte.fazenda.mg.gov.br/cte/services/CteStatusServico</CTeStatusServico>
+    </Homologacao>
+  </MG>
+  <MS>
+    <cUF>50</cUF>
+    <Producao>
+      <CTeRecepcao>https://producao.cte.ms.gov.br/cteWEB/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao>https://producao.cte.ms.gov.br/cteWEB/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento>https://producao.cte.ms.gov.br/cteWEB/CteCancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao>https://producao.cte.ms.gov.br/cteWEB/CteInutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo>https://producao.cte.ms.gov.br/cteWEB/CteConsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico>https://producao.cte.ms.gov.br/cteWEB/CteStatusServico.asmx</CTeStatusServico>
+      <CTeConsultaCadastro>https://producao.cte.ms.gov.br/cteWEB/CadConsultaCadastro.asmx</CTeConsultaCadastro>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao>https://homologacao.cte.ms.gov.br/cteWEB/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao>https://homologacao.cte.ms.gov.br/cteWEB/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento>https://homologacao.cte.ms.gov.br/cteWEB/CteCancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao>https://homologacao.cte.ms.gov.br/cteWEB/CteInutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo>https://homologacao.cte.ms.gov.br/cteWEB/CteConsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico>https://homologacao.cte.ms.gov.br/cteWEB/CteStatusServico.asmx</CTeStatusServico>
+      <CTeConsultaCadastro>https://homologacao.cte.ms.gov.br/cteWEB/CadConsultaCadastro.asmx</CTeConsultaCadastro>
+    </Homologacao>
+  </MS>
+  <MT>
+    <cUF>51</cUF>
+    <Producao>
+      <CTeRecepcao>https://cte.sefaz.mt.gov.br/ctews/services/CteRecepcao</CTeRecepcao>
+      <CTeRetRecepcao>https://cte.sefaz.mt.gov.br/ctews/services/CteRetRecepcao</CTeRetRecepcao>
+      <CTeCancelamento>https://cte.sefaz.mt.gov.br/ctews/services/CteCancelamento</CTeCancelamento>
+      <CTeInutilizacao>https://cte.sefaz.mt.gov.br/ctews/services/CteInutilizacao</CTeInutilizacao>
+      <CTeConsultaProtocolo>https://cte.sefaz.mt.gov.br/ctews/services/CteConsulta</CTeConsultaProtocolo>
+      <CTeStatusServico>https://cte.sefaz.mt.gov.br/ctews/services/CteStatusServico</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao>https://homologacao.sefaz.mt.gov.br/ctews/services/CteRecepcao</CTeRecepcao>
+      <CTeRetRecepcao>https://homologacao.sefaz.mt.gov.br/ctews/services/CteRetRecepcao</CTeRetRecepcao>
+      <CTeCancelamento>https://homologacao.sefaz.mt.gov.br/ctews/services/CteCancelamento</CTeCancelamento>
+      <CTeInutilizacao>https://homologacao.sefaz.mt.gov.br/ctews/services/CteInutilizacao</CTeInutilizacao>
+      <CTeConsultaProtocolo>https://homologacao.sefaz.mt.gov.br/ctews/services/CteConsulta</CTeConsultaProtocolo>
+      <CTeStatusServico>ps://homologacao.sefaz.mt.gov.br/ctews/services/CteStatusServico</CTeStatusServico>
+    </Homologacao>
+  </MT>
+  <PA>
+    <cUF>15</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </PA>
+  <PB>
+    <cUF>25</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </PB>
+  <PE>
+    <cUF>26</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/CteCancelamento.asmx</CTeCancelamento>
+      <CTeConsultaProtocolo versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/CteConsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/CteStatusServico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CteCancelamento.asmx</CTeCancelamento>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CteConsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CteStatusServico.asmx</CTeStatusServico>
+    </Homologacao>
+  </PE>
+  <PI>
+    <cUF>22</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </PI>
+  <PR>
+    <cUF>41</cUF>
+    <Producao>
+      <CTeRecepcao>https://cte.fazenda.pr.gov.br/cte/CteRecepcao?wsdl</CTeRecepcao>
+      <CTeRetRecepcao>https://cte.fazenda.pr.gov.br/cte/CteRetRecepcao?wsdl</CTeRetRecepcao>
+      <CTeCancelamento>https://cte.fazenda.pr.gov.br/cte/CteCancelamento?wsdl</CTeCancelamento>
+      <CTeInutilizacao>https://cte.fazenda.pr.gov.br/cte/CteInutilizacao?wsdl</CTeInutilizacao>
+      <CTeConsultaProtocolo>https://cte.fazenda.pr.gov.br/cte/CteConsulta?wsdl</CTeConsultaProtocolo>
+      <CTeStatusServico>https://cte.fazenda.pr.gov.br/cte/CteStatusServico?wsdl</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.fazenda.pr.gov.br/cte/CteRecepcao?wsdl</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.fazenda.pr.gov.br/cte/CteRetRecepcao?wsdl</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.fazenda.pr.gov.br/cte/CteCancelamento?wsdl</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.fazenda.pr.gov.br/cte/CteInutilizacao?wsdl</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.fazenda.pr.gov.br/cte/CteConsulta?wsdl</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.fazenda.pr.gov.br/cte/CteStatusServico?wsdl</CTeStatusServico>
+    </Homologacao>
+  </PR>
+  <RJ>
+    <cUF>33</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </RJ>
+  <RN>
+    <cUF>24</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </RN>
+  <RO>
+    <cUF>11</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </RO>
+  <RR>
+    <cUF>14</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/CteCancelamento.asmx</CTeCancelamento>
+      <CTeConsultaProtocolo versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/CteConsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/CteStatusServico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CteCancelamento.asmx</CTeCancelamento>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CteConsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CteStatusServico.asmx</CTeStatusServico>
+    </Homologacao>
+  </RR>
+  <RS>
+    <cUF>43</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </RS>
+  <SC>
+    <cUF>42</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </SC>
+  <SE>
+    <cUF>28</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </SE>
+  <TO>
+    <cUF>17</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteretrecepcao/CteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctecancelamento/ctecancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteinutilizacao/cteinutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/cteconsulta/cteconsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.cte.sefaz.rs.gov.br/ws/ctestatusservico/ctestatusservico.asmx</CTeStatusServico>
+    </Homologacao>
+  </TO>
+  <SP>
+    <cUF>35</cUF>
+    <Producao>
+      <CTeRecepcao versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteCancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteInutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteConsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://nfe.fazenda.sp.gov.br/cteWEB/services/cteStatusServico.asmx</CTeStatusServico>
+    </Producao>
+    <Homologacao>
+      <CTeRecepcao versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteRecepcao.asmx</CTeRecepcao>
+      <CTeRetRecepcao versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteRetRecepcao.asmx</CTeRetRecepcao>
+      <CTeCancelamento versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteCancelamento.asmx</CTeCancelamento>
+      <CTeInutilizacao versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteInutilizacao.asmx</CTeInutilizacao>
+      <CTeConsultaProtocolo versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteConsulta.asmx</CTeConsultaProtocolo>
+      <CTeStatusServico versao ="1.00">https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteStatusServico.asmx</CTeStatusServico>
+    </Homologacao>
+  </SP>
+</CTeWebServices>

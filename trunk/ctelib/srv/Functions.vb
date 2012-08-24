@@ -5,6 +5,7 @@ Imports System.Xml.Serialization
 Namespace CTe
   Public Class Functions
     Public Shared Event ExceptionOccured As UnhandledExceptionEventHandler
+    <DebuggerStepThrough()> _
     Public Shared Function CancelarCTe(ByVal chaveAcesso As String, ByVal numProtocolo As String, ByVal Ambiente As String, ByVal Justificativa As String, ByVal x509 As X509Certificate2) As Xml.XmlNode
       Dim cancCTe As New TCancCTe
       With cancCTe.infCanc
@@ -14,21 +15,60 @@ Namespace CTe
         .tpAmb = Ambiente
         .xJust = Justificativa
       End With
-      Dim ws As New cteCancelamento.CteCancelamento '(chaveAcesso.substring(0,2),Ambiente)
+      Return CancelarCTe(cancCTe, x509)
+    End Function
+    Public Shared Function CancelarCTe(ByVal cancCTe As TCancCTe, ByVal x509 As X509Certificate2) As XmlNode
+      Dim ws As New CTe.WebServices.CteCancelamento(cancCTe.infCanc.chCTe.Substring(0, 2), cancCTe.infCanc.tpAmb)
       ws.ClientCertificates.Add(x509)
+      If cancCTe.Signature Is Nothing Then _
+        cancCTe = TryParseAndDeserialize(AssinarRaizXML(cancCTe.ToXMLNode, x509, cancCTe.infCanc.Id))
       Dim result As XmlNode = ws.cteCancelamentoCT(cancCTe.ToXMLNode)
+      Return result
+    End Function
+    Public Shared Function ConsultaStatusServiço(ByVal cUF As Integer, ByVal Ambiente As String, ByVal x509 As X509Certificate2) As XmlNode
+      Dim consStatServ As New TConsStatServ
+      With consStatServ
+        .tpAmb = Ambiente
+        .versao = "1.00"
+      End With
+      Dim ws As New CTe.WebServices.CteStatusServico(cUF, Ambiente)
+      ws.ClientCertificates.Add(x509)
+      Dim result As XmlNode = ws.cteStatusServicoCT(consStatServ.ToXMLNode)
       Return result
     End Function
     Public Shared Function ConsultarSituaçãoCTe(ByVal chAcesso As String, ByVal Ambiente As String, ByVal x509 As X509Certificate2) As XmlNode
       Dim consSitCTe As New TConsSitCTe(Ambiente, chAcesso)
-      Dim ws As New cteConsulta.CteConsulta
-      ws.cteCabecMsgValue = New cteConsulta.cteCabecMsg
-      ws.cteCabecMsgValue.cUF = chAcesso.Substring(0, 2)
-      ws.cteCabecMsgValue.versaoDados = "1.04"
+      Dim ws As New CTe.WebServices.CteConsulta(chAcesso.Substring(0, 2), Ambiente)
       ws.ClientCertificates.Add(x509)
+      ws.cteCabecMsgValue.versaoDados = "1.04"
       Dim result As XmlNode = ws.cteConsultaCT(consSitCTe.ToXMLNode)
       Return result
     End Function
+    <DebuggerStepThrough()> _
+    Public Shared Function TransmitirCTe(ByVal numLote As Long, ByVal CTe As TCTe, ByVal x509 As X509Certificate2) As XmlNode
+      Return TransmitirCTe(New TEnviCTe(numLote, CTe), x509)
+    End Function
+    <DebuggerStepThrough()> _
+    Public Shared Function TransmitirCTe(ByVal numLote As Long, ByVal CTe() As TCTe, ByVal x509 As X509Certificate2) As XmlNode
+      Return TransmitirCTe(New TEnviCTe(numLote, CTe), x509)
+    End Function
+    Public Shared Function TransmitirCTe(ByVal lote As TEnviCTe, ByVal x509 As X509Certificate2) As XmlNode
+      If lote.CTe Is Nothing Then Return Nothing
+      If lote.CTe.Length = 0 Then Return Nothing
+      Dim ws As New CTe.WebServices.CteRecepcao(lote.CTe(0).infCte.ide.cUF, lote.CTe(0).infCte.ide.tpAmb)
+      ws.ClientCertificates.Add(x509)
+      Dim result As XmlNode = ws.cteRecepcaoLote(lote.ToXMLNode)
+      Return result
+    End Function
+
+    Public Shared Function InutilizarFaixa(ByVal inutCTe As TInutCTe, ByVal x509 As X509Certificate2) As XmlNode
+      Dim ws As New CTe.WebServices.CteInutilizacao(inutCTe.infInut.cUF, inutCTe.infInut.tpAmb)
+      ws.ClientCertificates.Add(x509)
+      If inutCTe.Signature Is Nothing Then inutCTe = TryParseAndDeserialize(AssinarRaizXML(inutCTe.toxmlnode, x509, inutCTe.infInut.Id))
+      Dim result As XmlNode = ws.cteInutilizacaoCT(inutCTe.ToXMLNode)
+      Return result
+    End Function
+
     Public Shared Function TryParseAndDeserialize(ByVal xmlString As String) As Object
       Try
         If String.IsNullOrEmpty(xmlString) Then Return Nothing
@@ -50,6 +90,10 @@ Namespace CTe
           t = GetType(cteProc)
         Case "cancCTe"
           t = GetType(TCancCTe)
+        Case "consSitCTe"
+          t = GetType(TConsSitCTe)
+        Case "retConsSitCTe"
+          t = GetType(TRetConsSitCTe)
         Case "retCancCTe"
           t = GetType(TRetCancCTe)
         Case "procCancCTe"
@@ -147,10 +191,10 @@ Namespace CTe
       'Return Nothing
     End Function
     Friend Shared Sub InitCTEWSXML()
-      If Not IO.File.Exists("nfews.xml") Then IO.File.WriteAllText("nfews.xml", My.Resources.CTews, System.Text.Encoding.UTF8)
+      If Not IO.File.Exists("\ctews.xml") Then IO.File.WriteAllText("\ctews.xml", My.Resources.ctews, System.Text.Encoding.UTF8)
     End Sub
     Friend Shared Sub DeinitCTEWSXML()
-      If IO.File.Exists("nfews.xml") Then IO.File.Delete("nfews.xml")
+      If IO.File.Exists("\ctews.xml") Then IO.File.Delete("\ctews.xml")
     End Sub
   End Class
 End Namespace

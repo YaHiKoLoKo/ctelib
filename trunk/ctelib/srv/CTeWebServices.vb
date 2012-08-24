@@ -1,4 +1,10 @@
-Imports System.Web.services
+Option Strict Off
+Option Explicit On
+Imports System
+Imports System.ComponentModel
+Imports System.Diagnostics
+Imports System.Web.Services
+Imports System.Web.Services.Protocols
 Imports System.Xml.Serialization
 
 Namespace CTe.WebServices
@@ -167,18 +173,18 @@ Namespace CTe.WebServices
             CTeStatusServicoField = value
           End Set
         End Property
-        
+
       End Class
     End Class
     Sub New()
       If list Is Nothing AndAlso Not loading Then _
-      Me.Load("CTews.xml")
+      Me.Load("\ctews.xml")
     End Sub
 
     Private Sub Load(ByVal fromFile As String)
       'Dim ns As New XmlSerializerNamespaces
       'ns.Add("", "http://www.portalfisca.inf.br/CTe")
-      CTe.Functions.InitCTeWSXML()
+      CTe.Functions.InitCTEWSXML()
       Dim xs As New XmlSerializer(GetType(CTeWebServices))
       Dim fs As New IO.MemoryStream(IO.File.ReadAllBytes(fromFile))
       loading = True
@@ -188,7 +194,7 @@ Namespace CTe.WebServices
       loading = False
       fs.Close()
       fs.Flush()
-      CTe.Functions.DeinitCTeWSXML()
+      CTe.Functions.DeinitCTEWSXML()
     End Sub
     Private Shared Function GetUFItem(ByVal cUF As Integer) As WebServicesUF
       For Each item As WebServicesUF In list.UF
@@ -327,4 +333,1170 @@ Namespace CTe.WebServices
       Return GetCTeStatusServicoURL([Enum].Parse(GetType(eUF), UF, True), Ambiente)
     End Function
   End Class
+
+#Region "cteRecepcao"
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code"), _
+   System.Web.Services.WebServiceBindingAttribute(Name:="CteRecepcaoSoap12", [Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao")> _
+  Partial Public Class CteRecepcao
+    Inherits System.Web.Services.Protocols.SoapHttpClientProtocol
+
+    Private cteCabecMsgValueField As CteRecepcao.cteCabecMsg
+
+    Private cteRecepcaoLoteOperationCompleted As System.Threading.SendOrPostCallback
+
+    Private useDefaultCredentialsSetExplicitly As Boolean
+
+    '''<remarks/>
+    Public Sub New(ByVal cUF As Integer, ByVal Ambiente As Integer)
+      MyBase.New()
+      Me.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12
+      Me.Url = CTe.WebServices.CTeWebServices.GetCTeRecepcaoURL(cuf, ambiente) 'Global.ctelib.My.MySettings.Default.ctelib_cteRecepcao_CteRecepcao
+      If (Me.IsLocalFileSystemWebService(Me.Url) = True) Then
+        Me.UseDefaultCredentials = True
+        Me.useDefaultCredentialsSetExplicitly = False
+      Else
+        Me.useDefaultCredentialsSetExplicitly = True
+      End If
+      Me.cteCabecMsgValueField = New CteRecepcao.cteCabecMsg
+      Me.cteCabecMsgValue.cUF = cUF
+      Me.cteCabecMsgValue.versaoDados = "1.00"
+    End Sub
+
+    Public Property cteCabecMsgValue() As CteRecepcao.cteCabecMsg
+      Get
+        Return Me.cteCabecMsgValueField
+      End Get
+      Set(ByVal value As CteRecepcao.cteCabecMsg)
+        Me.cteCabecMsgValueField = value
+      End Set
+    End Property
+
+    Public Shadows Property Url() As String
+      Get
+        Return MyBase.Url
+      End Get
+      Set(ByVal value As String)
+        If (((Me.IsLocalFileSystemWebService(MyBase.Url) = True) _
+                    AndAlso (Me.useDefaultCredentialsSetExplicitly = False)) _
+                    AndAlso (Me.IsLocalFileSystemWebService(value) = False)) Then
+          MyBase.UseDefaultCredentials = False
+        End If
+        MyBase.Url = value
+      End Set
+    End Property
+
+    Public Shadows Property UseDefaultCredentials() As Boolean
+      Get
+        Return MyBase.UseDefaultCredentials
+      End Get
+      Set(ByVal value As Boolean)
+        MyBase.UseDefaultCredentials = value
+        Me.useDefaultCredentialsSetExplicitly = True
+      End Set
+    End Property
+
+    '''<remarks/>
+    Public Event cteRecepcaoLoteCompleted As cteRecepcaoLoteCompletedEventHandler
+
+    '''<remarks/>
+    <System.Web.Services.Protocols.SoapHeaderAttribute("cteCabecMsgValue", Direction:=System.Web.Services.Protocols.SoapHeaderDirection.InOut), _
+     System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao/cteRecepcaoLote", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Bare)> _
+    Public Function cteRecepcaoLote(<System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao")> ByVal cteDadosMsg As System.Xml.XmlNode) As <System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao")> System.Xml.XmlNode
+      Dim results() As Object = Me.Invoke("cteRecepcaoLote", New Object() {cteDadosMsg})
+      Return CType(results(0), System.Xml.XmlNode)
+    End Function
+
+    '''<remarks/>
+    Public Overloads Sub cteRecepcaoLoteAsync(ByVal cteDadosMsg As System.Xml.XmlNode)
+      Me.cteRecepcaoLoteAsync(cteDadosMsg, Nothing)
+    End Sub
+
+    '''<remarks/>
+    Public Overloads Sub cteRecepcaoLoteAsync(ByVal cteDadosMsg As System.Xml.XmlNode, ByVal userState As Object)
+      If (Me.cteRecepcaoLoteOperationCompleted Is Nothing) Then
+        Me.cteRecepcaoLoteOperationCompleted = AddressOf Me.OncteRecepcaoLoteOperationCompleted
+      End If
+      Me.InvokeAsync("cteRecepcaoLote", New Object() {cteDadosMsg}, Me.cteRecepcaoLoteOperationCompleted, userState)
+    End Sub
+
+    Private Sub OncteRecepcaoLoteOperationCompleted(ByVal arg As Object)
+      If (Not (Me.cteRecepcaoLoteCompletedEvent) Is Nothing) Then
+        Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+        RaiseEvent cteRecepcaoLoteCompleted(Me, New cteRecepcaoLoteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+      End If
+    End Sub
+
+    '''<remarks/>
+    Public Shadows Sub CancelAsync(ByVal userState As Object)
+      MyBase.CancelAsync(userState)
+    End Sub
+
+    Private Function IsLocalFileSystemWebService(ByVal url As String) As Boolean
+      If ((url Is Nothing) _
+                  OrElse (url Is String.Empty)) Then
+        Return False
+      End If
+      Dim wsUri As System.Uri = New System.Uri(url)
+      If ((wsUri.Port >= 1024) _
+                  AndAlso (String.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) = 0)) Then
+        Return True
+      End If
+      Return False
+    End Function
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082"), _
+     System.SerializableAttribute(), _
+     System.Diagnostics.DebuggerStepThroughAttribute(), _
+     System.ComponentModel.DesignerCategoryAttribute("code"), _
+     System.Xml.Serialization.XmlTypeAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao"), _
+     System.Xml.Serialization.XmlRootAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao", IsNullable:=False)> _
+    Partial Public Class cteCabecMsg
+      Inherits System.Web.Services.Protocols.SoapHeader
+
+      Private cUFField As String
+
+      Private versaoDadosField As String
+
+      Private anyAttrField() As System.Xml.XmlAttribute
+
+      '''<remarks/>
+      Public Property cUF() As String
+        Get
+          Return Me.cUFField
+        End Get
+        Set(ByVal value As String)
+          Me.cUFField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      Public Property versaoDados() As String
+        Get
+          Return Me.versaoDadosField
+        End Get
+        Set(ByVal value As String)
+          Me.versaoDadosField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      <System.Xml.Serialization.XmlAnyAttributeAttribute()> _
+      Public Property AnyAttr() As System.Xml.XmlAttribute()
+        Get
+          Return Me.anyAttrField
+        End Get
+        Set(ByVal value As System.Xml.XmlAttribute())
+          Me.anyAttrField = value
+        End Set
+      End Property
+    End Class
+  End Class
+
+
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")> _
+  Public Delegate Sub cteRecepcaoLoteCompletedEventHandler(ByVal sender As Object, ByVal e As cteRecepcaoLoteCompletedEventArgs)
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code")> _
+  Partial Public Class cteRecepcaoLoteCompletedEventArgs
+    Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+    Private results() As Object
+
+    Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+      MyBase.New(exception, cancelled, userState)
+      Me.results = results
+    End Sub
+
+    '''<remarks/>
+    Public ReadOnly Property Result() As System.Xml.XmlNode
+      Get
+        Me.RaiseExceptionIfNecessary()
+        Return CType(Me.results(0), System.Xml.XmlNode)
+      End Get
+    End Property
+  End Class
+
+#End Region
+#Region "cteRetRecepcao"
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+     System.Diagnostics.DebuggerStepThroughAttribute(), _
+     System.ComponentModel.DesignerCategoryAttribute("code"), _
+     System.Web.Services.WebServiceBindingAttribute(Name:="CteRetRecepcaoSoap12", [Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao")> _
+    Partial Public Class CteRetRecepcao
+    Inherits System.Web.Services.Protocols.SoapHttpClientProtocol
+
+    Private cteCabecMsgValueField As CteRetRecepcao.cteCabecMsg
+
+    Private cteRetRecepcaoOperationCompleted As System.Threading.SendOrPostCallback
+
+    Private useDefaultCredentialsSetExplicitly As Boolean
+
+    '''<remarks/>
+    Public Sub New(ByVal cUF As Integer, ByVal Ambiente As Integer)
+      MyBase.New()
+      Me.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12
+      Me.Url = ctelib.CTe.WebServices.CTeWebServices.GetCTeRetRecepcaoURL(cuf, ambiente) 'Global.ctelib.My.MySettings.Default.ctelib_cteRetRecepcao_CteRetRecepcao
+      If (Me.IsLocalFileSystemWebService(Me.Url) = True) Then
+        Me.UseDefaultCredentials = True
+        Me.useDefaultCredentialsSetExplicitly = False
+      Else
+        Me.useDefaultCredentialsSetExplicitly = True
+      End If
+      Me.cteCabecMsgValueField = New CteRetRecepcao.cteCabecMsg
+      Me.cteCabecMsgValue.cUF = cUF
+      Me.cteCabecMsgValueField.versaoDados = "1.00"
+    End Sub
+
+    Public Property cteCabecMsgValue() As CteRetRecepcao.cteCabecMsg
+      Get
+        Return Me.cteCabecMsgValueField
+      End Get
+      Set(ByVal value As CteRetRecepcao.cteCabecMsg)
+        Me.cteCabecMsgValueField = value
+      End Set
+    End Property
+
+    Public Shadows Property Url() As String
+      Get
+        Return MyBase.Url
+      End Get
+      Set(ByVal value As String)
+        If (((Me.IsLocalFileSystemWebService(MyBase.Url) = True) _
+                    AndAlso (Me.useDefaultCredentialsSetExplicitly = False)) _
+                    AndAlso (Me.IsLocalFileSystemWebService(value) = False)) Then
+          MyBase.UseDefaultCredentials = False
+        End If
+        MyBase.Url = value
+      End Set
+    End Property
+
+    Public Shadows Property UseDefaultCredentials() As Boolean
+      Get
+        Return MyBase.UseDefaultCredentials
+      End Get
+      Set(ByVal value As Boolean)
+        MyBase.UseDefaultCredentials = value
+        Me.useDefaultCredentialsSetExplicitly = True
+      End Set
+    End Property
+
+    '''<remarks/>
+    Public Event cteRetRecepcaoCompleted As cteRetRecepcaoCompletedEventHandler
+
+    '''<remarks/>
+    <System.Web.Services.Protocols.SoapHeaderAttribute("cteCabecMsgValue", Direction:=System.Web.Services.Protocols.SoapHeaderDirection.InOut), _
+     System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao/cteRetRecepcao", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Bare)> _
+    Public Function cteRetRecepcao(<System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao")> ByVal cteDadosMsg As System.Xml.XmlNode) As <System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao")> System.Xml.XmlNode
+      Dim results() As Object = Me.Invoke("cteRetRecepcao", New Object() {cteDadosMsg})
+      Return CType(results(0), System.Xml.XmlNode)
+    End Function
+
+    '''<remarks/>
+    Public Overloads Sub cteRetRecepcaoAsync(ByVal cteDadosMsg As System.Xml.XmlNode)
+      Me.cteRetRecepcaoAsync(cteDadosMsg, Nothing)
+    End Sub
+
+    '''<remarks/>
+    Public Overloads Sub cteRetRecepcaoAsync(ByVal cteDadosMsg As System.Xml.XmlNode, ByVal userState As Object)
+      If (Me.cteRetRecepcaoOperationCompleted Is Nothing) Then
+        Me.cteRetRecepcaoOperationCompleted = AddressOf Me.OncteRetRecepcaoOperationCompleted
+      End If
+      Me.InvokeAsync("cteRetRecepcao", New Object() {cteDadosMsg}, Me.cteRetRecepcaoOperationCompleted, userState)
+    End Sub
+
+    Private Sub OncteRetRecepcaoOperationCompleted(ByVal arg As Object)
+      If (Not (Me.cteRetRecepcaoCompletedEvent) Is Nothing) Then
+        Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+        RaiseEvent cteRetRecepcaoCompleted(Me, New cteRetRecepcaoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+      End If
+    End Sub
+
+    '''<remarks/>
+    Public Shadows Sub CancelAsync(ByVal userState As Object)
+      MyBase.CancelAsync(userState)
+    End Sub
+
+    Private Function IsLocalFileSystemWebService(ByVal url As String) As Boolean
+      If ((url Is Nothing) _
+                  OrElse (url Is String.Empty)) Then
+        Return False
+      End If
+      Dim wsUri As System.Uri = New System.Uri(url)
+      If ((wsUri.Port >= 1024) _
+                  AndAlso (String.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) = 0)) Then
+        Return True
+      End If
+      Return False
+    End Function
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082"), _
+     System.SerializableAttribute(), _
+     System.Diagnostics.DebuggerStepThroughAttribute(), _
+     System.ComponentModel.DesignerCategoryAttribute("code"), _
+     System.Xml.Serialization.XmlTypeAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao"), _
+     System.Xml.Serialization.XmlRootAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao", IsNullable:=False)> _
+    Partial Public Class cteCabecMsg
+      Inherits System.Web.Services.Protocols.SoapHeader
+
+      Private cUFField As String
+
+      Private versaoDadosField As String
+
+      Private anyAttrField() As System.Xml.XmlAttribute
+
+      '''<remarks/>
+      Public Property cUF() As String
+        Get
+          Return Me.cUFField
+        End Get
+        Set(ByVal value As String)
+          Me.cUFField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      Public Property versaoDados() As String
+        Get
+          Return Me.versaoDadosField
+        End Get
+        Set(ByVal value As String)
+          Me.versaoDadosField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      <System.Xml.Serialization.XmlAnyAttributeAttribute()> _
+      Public Property AnyAttr() As System.Xml.XmlAttribute()
+        Get
+          Return Me.anyAttrField
+        End Get
+        Set(ByVal value As System.Xml.XmlAttribute())
+          Me.anyAttrField = value
+        End Set
+      End Property
+    End Class
+  End Class
+
+  
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")> _
+  Public Delegate Sub cteRetRecepcaoCompletedEventHandler(ByVal sender As Object, ByVal e As cteRetRecepcaoCompletedEventArgs)
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code")> _
+  Partial Public Class cteRetRecepcaoCompletedEventArgs
+    Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+    Private results() As Object
+
+    Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+      MyBase.New(exception, cancelled, userState)
+      Me.results = results
+    End Sub
+
+    '''<remarks/>
+    Public ReadOnly Property Result() As System.Xml.XmlNode
+      Get
+        Me.RaiseExceptionIfNecessary()
+        Return CType(Me.results(0), System.Xml.XmlNode)
+      End Get
+    End Property
+  End Class
+
+#End Region
+#Region "cteConsulta"
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code"), _
+   System.Web.Services.WebServiceBindingAttribute(Name:="CteConsultaSoap12", [Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta")> _
+  Partial Public Class CteConsulta
+    Inherits System.Web.Services.Protocols.SoapHttpClientProtocol
+
+    Private cteCabecMsgValueField As CteConsulta.cteCabecMsg
+
+    Private cteConsultaCTOperationCompleted As System.Threading.SendOrPostCallback
+
+    Private useDefaultCredentialsSetExplicitly As Boolean
+
+    '''<remarks/>
+    Public Sub New(ByVal cUF As Integer, ByVal Ambiente As Integer)
+      MyBase.New()
+      Me.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12
+      Me.Url = CTe.WebServices.CTeWebServices.GetCTeConsultaProtocoloURL(cUF, Ambiente) 'Global.ctelib.My.MySettings.Default.ctelib_cteConsulta_CteConsulta
+      If (Me.IsLocalFileSystemWebService(Me.Url) = True) Then
+        Me.UseDefaultCredentials = True
+        Me.useDefaultCredentialsSetExplicitly = False
+      Else
+        Me.useDefaultCredentialsSetExplicitly = True
+      End If
+      Me.cteCabecMsgValueField = New CteConsulta.cteCabecMsg
+      Me.cteCabecMsgValue.cUF = cUF
+      Me.cteCabecMsgValue.versaoDados = "1.00"
+    End Sub
+
+    Public Property cteCabecMsgValue() As CteConsulta.cteCabecMsg
+      Get
+        Return Me.cteCabecMsgValueField
+      End Get
+      Set(ByVal value As CteConsulta.cteCabecMsg)
+        Me.cteCabecMsgValueField = value
+      End Set
+    End Property
+
+    Public Shadows Property Url() As String
+      Get
+        Return MyBase.Url
+      End Get
+      Set(ByVal value As String)
+        If (((Me.IsLocalFileSystemWebService(MyBase.Url) = True) _
+                    AndAlso (Me.useDefaultCredentialsSetExplicitly = False)) _
+                    AndAlso (Me.IsLocalFileSystemWebService(value) = False)) Then
+          MyBase.UseDefaultCredentials = False
+        End If
+        MyBase.Url = value
+      End Set
+    End Property
+
+    Public Shadows Property UseDefaultCredentials() As Boolean
+      Get
+        Return MyBase.UseDefaultCredentials
+      End Get
+      Set(ByVal value As Boolean)
+        MyBase.UseDefaultCredentials = value
+        Me.useDefaultCredentialsSetExplicitly = True
+      End Set
+    End Property
+
+    '''<remarks/>
+    Public Event cteConsultaCTCompleted As cteConsultaCTCompletedEventHandler
+
+    '''<remarks/>
+    <System.Web.Services.Protocols.SoapHeaderAttribute("cteCabecMsgValue", Direction:=System.Web.Services.Protocols.SoapHeaderDirection.InOut), _
+     System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/cteConsultaCT", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Bare)> _
+    Public Function cteConsultaCT(<System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta")> ByVal cteDadosMsg As System.Xml.XmlNode) As <System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta")> System.Xml.XmlNode
+      Dim results() As Object = Me.Invoke("cteConsultaCT", New Object() {cteDadosMsg})
+      Return CType(results(0), System.Xml.XmlNode)
+    End Function
+
+    '''<remarks/>
+    Public Overloads Sub cteConsultaCTAsync(ByVal cteDadosMsg As System.Xml.XmlNode)
+      Me.cteConsultaCTAsync(cteDadosMsg, Nothing)
+    End Sub
+
+    '''<remarks/>
+    Public Overloads Sub cteConsultaCTAsync(ByVal cteDadosMsg As System.Xml.XmlNode, ByVal userState As Object)
+      If (Me.cteConsultaCTOperationCompleted Is Nothing) Then
+        Me.cteConsultaCTOperationCompleted = AddressOf Me.OncteConsultaCTOperationCompleted
+      End If
+      Me.InvokeAsync("cteConsultaCT", New Object() {cteDadosMsg}, Me.cteConsultaCTOperationCompleted, userState)
+    End Sub
+
+    Private Sub OncteConsultaCTOperationCompleted(ByVal arg As Object)
+      If (Not (Me.cteConsultaCTCompletedEvent) Is Nothing) Then
+        Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+        RaiseEvent cteConsultaCTCompleted(Me, New cteConsultaCTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+      End If
+    End Sub
+
+    '''<remarks/>
+    Public Shadows Sub CancelAsync(ByVal userState As Object)
+      MyBase.CancelAsync(userState)
+    End Sub
+
+    Private Function IsLocalFileSystemWebService(ByVal url As String) As Boolean
+      If ((url Is Nothing) _
+                  OrElse (url Is String.Empty)) Then
+        Return False
+      End If
+      Dim wsUri As System.Uri = New System.Uri(url)
+      If ((wsUri.Port >= 1024) _
+                  AndAlso (String.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) = 0)) Then
+        Return True
+      End If
+      Return False
+    End Function
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082"), _
+   System.SerializableAttribute(), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code"), _
+   System.Xml.Serialization.XmlTypeAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta"), _
+   System.Xml.Serialization.XmlRootAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", IsNullable:=False)> _
+  Partial Public Class cteCabecMsg
+      Inherits System.Web.Services.Protocols.SoapHeader
+
+      Private cUFField As String
+
+      Private versaoDadosField As String
+
+      Private anyAttrField() As System.Xml.XmlAttribute
+
+      '''<remarks/>
+      Public Property cUF() As String
+        Get
+          Return Me.cUFField
+        End Get
+        Set(ByVal value As String)
+          Me.cUFField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      Public Property versaoDados() As String
+        Get
+          Return Me.versaoDadosField
+        End Get
+        Set(ByVal value As String)
+          Me.versaoDadosField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      <System.Xml.Serialization.XmlAnyAttributeAttribute()> _
+      Public Property AnyAttr() As System.Xml.XmlAttribute()
+        Get
+          Return Me.anyAttrField
+        End Get
+        Set(ByVal value As System.Xml.XmlAttribute())
+          Me.anyAttrField = value
+        End Set
+      End Property
+    End Class
+  End Class
+
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")> _
+  Public Delegate Sub cteConsultaCTCompletedEventHandler(ByVal sender As Object, ByVal e As cteConsultaCTCompletedEventArgs)
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code")> _
+  Partial Public Class cteConsultaCTCompletedEventArgs
+    Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+    Private results() As Object
+
+    Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+      MyBase.New(exception, cancelled, userState)
+      Me.results = results
+    End Sub
+
+    '''<remarks/>
+    Public ReadOnly Property Result() As System.Xml.XmlNode
+      Get
+        Me.RaiseExceptionIfNecessary()
+        Return CType(Me.results(0), System.Xml.XmlNode)
+      End Get
+    End Property
+  End Class
+
+#End Region
+#Region "cteStatusServico"
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code"), _
+   System.Web.Services.WebServiceBindingAttribute(Name:="CteStatusServicoSoap12", [Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico")> _
+  Partial Public Class CteStatusServico
+    Inherits System.Web.Services.Protocols.SoapHttpClientProtocol
+
+    Private cteCabecMsgValueField As CteStatusServico.cteCabecMsg
+
+    Private cteStatusServicoCTOperationCompleted As System.Threading.SendOrPostCallback
+
+    Private useDefaultCredentialsSetExplicitly As Boolean
+
+    '''<remarks/>
+    Public Sub New(ByVal cUF As Integer, ByVal Ambiente As Integer)
+      MyBase.New()
+      Me.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12
+      Me.Url = CTe.WebServices.CTeWebServices.GetCTeStatusServicoURL(cuf, ambiente) 'Global.ctelib.My.MySettings.Default.ctelib_cteStatusServico_CteStatusServico
+      If (Me.IsLocalFileSystemWebService(Me.Url) = True) Then
+        Me.UseDefaultCredentials = True
+        Me.useDefaultCredentialsSetExplicitly = False
+      Else
+        Me.useDefaultCredentialsSetExplicitly = True
+      End If
+      Me.cteCabecMsgValueField = New CteStatusServico.cteCabecMsg
+      Me.cteCabecMsgValue.cUF = cUF
+      Me.cteCabecMsgValue.versaoDados = "1.00"
+    End Sub
+
+    Public Property cteCabecMsgValue() As CteStatusServico.cteCabecMsg
+      Get
+        Return Me.cteCabecMsgValueField
+      End Get
+      Set(ByVal value As CteStatusServico.cteCabecMsg)
+        Me.cteCabecMsgValueField = value
+      End Set
+    End Property
+
+    Public Shadows Property Url() As String
+      Get
+        Return MyBase.Url
+      End Get
+      Set(ByVal value As String)
+        If (((Me.IsLocalFileSystemWebService(MyBase.Url) = True) _
+                    AndAlso (Me.useDefaultCredentialsSetExplicitly = False)) _
+                    AndAlso (Me.IsLocalFileSystemWebService(value) = False)) Then
+          MyBase.UseDefaultCredentials = False
+        End If
+        MyBase.Url = value
+      End Set
+    End Property
+
+    Public Shadows Property UseDefaultCredentials() As Boolean
+      Get
+        Return MyBase.UseDefaultCredentials
+      End Get
+      Set(ByVal value As Boolean)
+        MyBase.UseDefaultCredentials = value
+        Me.useDefaultCredentialsSetExplicitly = True
+      End Set
+    End Property
+
+    '''<remarks/>
+    Public Event cteStatusServicoCTCompleted As cteStatusServicoCTCompletedEventHandler
+
+    '''<remarks/>
+    <System.Web.Services.Protocols.SoapHeaderAttribute("cteCabecMsgValue", Direction:=System.Web.Services.Protocols.SoapHeaderDirection.InOut), _
+     System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico/cteStatusServicoCT", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Bare)> _
+    Public Function cteStatusServicoCT(<System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico")> ByVal cteDadosMsg As System.Xml.XmlNode) As <System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico")> System.Xml.XmlNode
+      Dim results() As Object = Me.Invoke("cteStatusServicoCT", New Object() {cteDadosMsg})
+      Return CType(results(0), System.Xml.XmlNode)
+    End Function
+
+    '''<remarks/>
+    Public Overloads Sub cteStatusServicoCTAsync(ByVal cteDadosMsg As System.Xml.XmlNode)
+      Me.cteStatusServicoCTAsync(cteDadosMsg, Nothing)
+    End Sub
+
+    '''<remarks/>
+    Public Overloads Sub cteStatusServicoCTAsync(ByVal cteDadosMsg As System.Xml.XmlNode, ByVal userState As Object)
+      If (Me.cteStatusServicoCTOperationCompleted Is Nothing) Then
+        Me.cteStatusServicoCTOperationCompleted = AddressOf Me.OncteStatusServicoCTOperationCompleted
+      End If
+      Me.InvokeAsync("cteStatusServicoCT", New Object() {cteDadosMsg}, Me.cteStatusServicoCTOperationCompleted, userState)
+    End Sub
+
+    Private Sub OncteStatusServicoCTOperationCompleted(ByVal arg As Object)
+      If (Not (Me.cteStatusServicoCTCompletedEvent) Is Nothing) Then
+        Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+        RaiseEvent cteStatusServicoCTCompleted(Me, New cteStatusServicoCTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+      End If
+    End Sub
+
+    '''<remarks/>
+    Public Shadows Sub CancelAsync(ByVal userState As Object)
+      MyBase.CancelAsync(userState)
+    End Sub
+
+    Private Function IsLocalFileSystemWebService(ByVal url As String) As Boolean
+      If ((url Is Nothing) _
+                  OrElse (url Is String.Empty)) Then
+        Return False
+      End If
+      Dim wsUri As System.Uri = New System.Uri(url)
+      If ((wsUri.Port >= 1024) _
+                  AndAlso (String.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) = 0)) Then
+        Return True
+      End If
+      Return False
+    End Function
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082"), _
+     System.SerializableAttribute(), _
+     System.Diagnostics.DebuggerStepThroughAttribute(), _
+     System.ComponentModel.DesignerCategoryAttribute("code"), _
+     System.Xml.Serialization.XmlTypeAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico"), _
+     System.Xml.Serialization.XmlRootAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", IsNullable:=False)> _
+    Partial Public Class cteCabecMsg
+      Inherits System.Web.Services.Protocols.SoapHeader
+
+      Private cUFField As String
+
+      Private versaoDadosField As String
+
+      Private anyAttrField() As System.Xml.XmlAttribute
+
+      '''<remarks/>
+      Public Property cUF() As String
+        Get
+          Return Me.cUFField
+        End Get
+        Set(ByVal value As String)
+          Me.cUFField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      Public Property versaoDados() As String
+        Get
+          Return Me.versaoDadosField
+        End Get
+        Set(ByVal value As String)
+          Me.versaoDadosField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      <System.Xml.Serialization.XmlAnyAttributeAttribute()> _
+      Public Property AnyAttr() As System.Xml.XmlAttribute()
+        Get
+          Return Me.anyAttrField
+        End Get
+        Set(ByVal value As System.Xml.XmlAttribute())
+          Me.anyAttrField = value
+        End Set
+      End Property
+    End Class
+  End Class
+
+  
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")> _
+  Public Delegate Sub cteStatusServicoCTCompletedEventHandler(ByVal sender As Object, ByVal e As cteStatusServicoCTCompletedEventArgs)
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code")> _
+  Partial Public Class cteStatusServicoCTCompletedEventArgs
+    Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+    Private results() As Object
+
+    Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+      MyBase.New(exception, cancelled, userState)
+      Me.results = results
+    End Sub
+
+    '''<remarks/>
+    Public ReadOnly Property Result() As System.Xml.XmlNode
+      Get
+        Me.RaiseExceptionIfNecessary()
+        Return CType(Me.results(0), System.Xml.XmlNode)
+      End Get
+    End Property
+  End Class
+
+#End Region
+#Region "cteCancelamento"
+  '------------------------------------------------------------------------------
+  ' <auto-generated>
+  '     This code was generated by a tool.
+  '     Runtime Version:2.0.50727.3625
+  '
+  '     Changes to this file may cause incorrect behavior and will be lost if
+  '     the code is regenerated.
+  ' </auto-generated>
+  '------------------------------------------------------------------------------
+
+
+
+
+
+  '
+  'This source code was auto-generated by Microsoft.VSDesigner, Version 2.0.50727.3625.
+  '
+
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code"), _
+   System.Web.Services.WebServiceBindingAttribute(Name:="CteCancelamentoSoap12", [Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteCancelamento")> _
+  Partial Public Class CteCancelamento
+    Inherits System.Web.Services.Protocols.SoapHttpClientProtocol
+
+    Private cteCabecMsgValueField As CteCancelamento.cteCabecMsg
+
+    Private cteCancelamentoCTOperationCompleted As System.Threading.SendOrPostCallback
+
+    Private useDefaultCredentialsSetExplicitly As Boolean
+
+    '''<remarks/>
+    Public Sub New(ByVal cUF As Integer, ByVal Ambiente As Integer)
+      MyBase.New()
+      Me.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12
+      Me.Url = CTeWebServices.GetCTeCancelamentoURL(cUF, Ambiente) 'Global.ctelib.My.MySettings.Default.ctelib_cteCancelamento_CteCancelamento
+      If (Me.IsLocalFileSystemWebService(Me.Url) = True) Then
+        Me.UseDefaultCredentials = True
+        Me.useDefaultCredentialsSetExplicitly = False
+      Else
+        Me.useDefaultCredentialsSetExplicitly = True
+      End If
+      Me.cteCabecMsgValueField = New CteCancelamento.cteCabecMsg
+      Me.cteCabecMsgValue.cUF = cUF
+      Me.cteCabecMsgValue.versaoDados = "1.00"
+    End Sub
+
+    Public Property cteCabecMsgValue() As CteCancelamento.cteCabecMsg
+      Get
+        Return Me.cteCabecMsgValueField
+      End Get
+      Set(ByVal value As CteCancelamento.cteCabecMsg)
+        Me.cteCabecMsgValueField = value
+      End Set
+    End Property
+
+    Public Shadows Property Url() As String
+      Get
+        Return MyBase.Url
+      End Get
+      Set(ByVal value As String)
+        If (((Me.IsLocalFileSystemWebService(MyBase.Url) = True) _
+                    AndAlso (Me.useDefaultCredentialsSetExplicitly = False)) _
+                    AndAlso (Me.IsLocalFileSystemWebService(value) = False)) Then
+          MyBase.UseDefaultCredentials = False
+        End If
+        MyBase.Url = value
+      End Set
+    End Property
+
+    Public Shadows Property UseDefaultCredentials() As Boolean
+      Get
+        Return MyBase.UseDefaultCredentials
+      End Get
+      Set(ByVal value As Boolean)
+        MyBase.UseDefaultCredentials = value
+        Me.useDefaultCredentialsSetExplicitly = True
+      End Set
+    End Property
+
+    '''<remarks/>
+    Public Event cteCancelamentoCTCompleted As cteCancelamentoCTCompletedEventHandler
+
+    '''<remarks/>
+    <System.Web.Services.Protocols.SoapHeaderAttribute("cteCabecMsgValue", Direction:=System.Web.Services.Protocols.SoapHeaderDirection.InOut), _
+     System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.portalfiscal.inf.br/cte/wsdl/CteCancelamento/cteCancelamentoCT", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Bare)> _
+    Public Function cteCancelamentoCT(<System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteCancelamento")> ByVal cteDadosMsg As System.Xml.XmlNode) As <System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteCancelamento")> System.Xml.XmlNode
+      Dim results() As Object = Me.Invoke("cteCancelamentoCT", New Object() {cteDadosMsg})
+      Return CType(results(0), System.Xml.XmlNode)
+    End Function
+
+    '''<remarks/>
+    Public Overloads Sub cteCancelamentoCTAsync(ByVal cteDadosMsg As System.Xml.XmlNode)
+      Me.cteCancelamentoCTAsync(cteDadosMsg, Nothing)
+    End Sub
+
+    '''<remarks/>
+    Public Overloads Sub cteCancelamentoCTAsync(ByVal cteDadosMsg As System.Xml.XmlNode, ByVal userState As Object)
+      If (Me.cteCancelamentoCTOperationCompleted Is Nothing) Then
+        Me.cteCancelamentoCTOperationCompleted = AddressOf Me.OncteCancelamentoCTOperationCompleted
+      End If
+      Me.InvokeAsync("cteCancelamentoCT", New Object() {cteDadosMsg}, Me.cteCancelamentoCTOperationCompleted, userState)
+    End Sub
+
+    Private Sub OncteCancelamentoCTOperationCompleted(ByVal arg As Object)
+      If (Not (Me.cteCancelamentoCTCompletedEvent) Is Nothing) Then
+        Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+        RaiseEvent cteCancelamentoCTCompleted(Me, New cteCancelamentoCTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+      End If
+    End Sub
+
+    '''<remarks/>
+    Public Shadows Sub CancelAsync(ByVal userState As Object)
+      MyBase.CancelAsync(userState)
+    End Sub
+
+    Private Function IsLocalFileSystemWebService(ByVal url As String) As Boolean
+      If ((url Is Nothing) _
+                  OrElse (url Is String.Empty)) Then
+        Return False
+      End If
+      Dim wsUri As System.Uri = New System.Uri(url)
+      If ((wsUri.Port >= 1024) _
+                  AndAlso (String.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) = 0)) Then
+        Return True
+      End If
+      Return False
+    End Function
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082"), _
+     System.SerializableAttribute(), _
+     System.Diagnostics.DebuggerStepThroughAttribute(), _
+     System.ComponentModel.DesignerCategoryAttribute("code"), _
+     System.Xml.Serialization.XmlTypeAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteCancelamento"), _
+     System.Xml.Serialization.XmlRootAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteCancelamento", IsNullable:=False)> _
+    Partial Public Class cteCabecMsg
+      Inherits System.Web.Services.Protocols.SoapHeader
+
+      Private cUFField As String
+
+      Private versaoDadosField As String
+
+      Private anyAttrField() As System.Xml.XmlAttribute
+
+      '''<remarks/>
+      Public Property cUF() As String
+        Get
+          Return Me.cUFField
+        End Get
+        Set(ByVal value As String)
+          Me.cUFField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      Public Property versaoDados() As String
+        Get
+          Return Me.versaoDadosField
+        End Get
+        Set(ByVal value As String)
+          Me.versaoDadosField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      <System.Xml.Serialization.XmlAnyAttributeAttribute()> _
+      Public Property AnyAttr() As System.Xml.XmlAttribute()
+        Get
+          Return Me.anyAttrField
+        End Get
+        Set(ByVal value As System.Xml.XmlAttribute())
+          Me.anyAttrField = value
+        End Set
+      End Property
+    End Class
+  End Class
+
+ 
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")> _
+  Public Delegate Sub cteCancelamentoCTCompletedEventHandler(ByVal sender As Object, ByVal e As cteCancelamentoCTCompletedEventArgs)
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code")> _
+  Partial Public Class cteCancelamentoCTCompletedEventArgs
+    Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+    Private results() As Object
+
+    Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+      MyBase.New(exception, cancelled, userState)
+      Me.results = results
+    End Sub
+
+    '''<remarks/>
+    Public ReadOnly Property Result() As System.Xml.XmlNode
+      Get
+        Me.RaiseExceptionIfNecessary()
+        Return CType(Me.results(0), System.Xml.XmlNode)
+      End Get
+    End Property
+  End Class
+#End Region
+#Region "cteInutilizacao"
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code"), _
+   System.Web.Services.WebServiceBindingAttribute(Name:="CteInutilizacaoSoap12", [Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteInutilizacao")> _
+  Partial Public Class CteInutilizacao
+    Inherits System.Web.Services.Protocols.SoapHttpClientProtocol
+
+    Private cteCabecMsgValueField As CteInutilizacao.cteCabecMsg
+
+    Private cteInutilizacaoCTOperationCompleted As System.Threading.SendOrPostCallback
+
+    Private useDefaultCredentialsSetExplicitly As Boolean
+
+    '''<remarks/>
+    Public Sub New(ByVal cUF As Integer, ByVal Ambiente As Integer)
+      MyBase.New()
+      Me.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12
+      Me.Url = CTe.WebServices.CTeWebServices.GetCTeInutilizacaoURL(cuf, ambiente) 'Global.ctelib.My.MySettings.Default.ctelib_cteInutilizacao_CteInutilizacao
+      If (Me.IsLocalFileSystemWebService(Me.Url) = True) Then
+        Me.UseDefaultCredentials = True
+        Me.useDefaultCredentialsSetExplicitly = False
+      Else
+        Me.useDefaultCredentialsSetExplicitly = True
+      End If
+      Me.cteCabecMsgValueField = New CteInutilizacao.cteCabecMsg
+      Me.cteCabecMsgValue.cUF = cUF
+      Me.cteCabecMsgValue.versaoDados = "1.00"
+    End Sub
+
+    Public Property cteCabecMsgValue() As CteInutilizacao.cteCabecMsg
+      Get
+        Return Me.cteCabecMsgValueField
+      End Get
+      Set(ByVal value As CteInutilizacao.cteCabecMsg)
+        Me.cteCabecMsgValueField = value
+      End Set
+    End Property
+
+    Public Shadows Property Url() As String
+      Get
+        Return MyBase.Url
+      End Get
+      Set(ByVal value As String)
+        If (((Me.IsLocalFileSystemWebService(MyBase.Url) = True) _
+                    AndAlso (Me.useDefaultCredentialsSetExplicitly = False)) _
+                    AndAlso (Me.IsLocalFileSystemWebService(value) = False)) Then
+          MyBase.UseDefaultCredentials = False
+        End If
+        MyBase.Url = value
+      End Set
+    End Property
+
+    Public Shadows Property UseDefaultCredentials() As Boolean
+      Get
+        Return MyBase.UseDefaultCredentials
+      End Get
+      Set(ByVal value As Boolean)
+        MyBase.UseDefaultCredentials = value
+        Me.useDefaultCredentialsSetExplicitly = True
+      End Set
+    End Property
+
+    '''<remarks/>
+    Public Event cteInutilizacaoCTCompleted As cteInutilizacaoCTCompletedEventHandler
+
+    '''<remarks/>
+    <System.Web.Services.Protocols.SoapHeaderAttribute("cteCabecMsgValue", Direction:=System.Web.Services.Protocols.SoapHeaderDirection.InOut), _
+     System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://www.portalfiscal.inf.br/cte/wsdl/CteInutilizacao/cteInutilizacaoCT", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Bare)> _
+    Public Function cteInutilizacaoCT(<System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteInutilizacao")> ByVal cteDadosMsg As System.Xml.XmlNode) As <System.Xml.Serialization.XmlElementAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteInutilizacao")> System.Xml.XmlNode
+      Dim results() As Object = Me.Invoke("cteInutilizacaoCT", New Object() {cteDadosMsg})
+      Return CType(results(0), System.Xml.XmlNode)
+    End Function
+
+    '''<remarks/>
+    Public Overloads Sub cteInutilizacaoCTAsync(ByVal cteDadosMsg As System.Xml.XmlNode)
+      Me.cteInutilizacaoCTAsync(cteDadosMsg, Nothing)
+    End Sub
+
+    '''<remarks/>
+    Public Overloads Sub cteInutilizacaoCTAsync(ByVal cteDadosMsg As System.Xml.XmlNode, ByVal userState As Object)
+      If (Me.cteInutilizacaoCTOperationCompleted Is Nothing) Then
+        Me.cteInutilizacaoCTOperationCompleted = AddressOf Me.OncteInutilizacaoCTOperationCompleted
+      End If
+      Me.InvokeAsync("cteInutilizacaoCT", New Object() {cteDadosMsg}, Me.cteInutilizacaoCTOperationCompleted, userState)
+    End Sub
+
+    Private Sub OncteInutilizacaoCTOperationCompleted(ByVal arg As Object)
+      If (Not (Me.cteInutilizacaoCTCompletedEvent) Is Nothing) Then
+        Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg, System.Web.Services.Protocols.InvokeCompletedEventArgs)
+        RaiseEvent cteInutilizacaoCTCompleted(Me, New cteInutilizacaoCTCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
+      End If
+    End Sub
+
+    '''<remarks/>
+    Public Shadows Sub CancelAsync(ByVal userState As Object)
+      MyBase.CancelAsync(userState)
+    End Sub
+
+    Private Function IsLocalFileSystemWebService(ByVal url As String) As Boolean
+      If ((url Is Nothing) _
+                  OrElse (url Is String.Empty)) Then
+        Return False
+      End If
+      Dim wsUri As System.Uri = New System.Uri(url)
+      If ((wsUri.Port >= 1024) _
+                  AndAlso (String.Compare(wsUri.Host, "localHost", System.StringComparison.OrdinalIgnoreCase) = 0)) Then
+        Return True
+      End If
+      Return False
+    End Function
+
+    '''<remarks/>
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.3082"), _
+     System.SerializableAttribute(), _
+     System.Diagnostics.DebuggerStepThroughAttribute(), _
+     System.ComponentModel.DesignerCategoryAttribute("code"), _
+     System.Xml.Serialization.XmlTypeAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteInutilizacao"), _
+     System.Xml.Serialization.XmlRootAttribute([Namespace]:="http://www.portalfiscal.inf.br/cte/wsdl/CteInutilizacao", IsNullable:=False)> _
+    Partial Public Class cteCabecMsg
+      Inherits System.Web.Services.Protocols.SoapHeader
+
+      Private cUFField As String
+
+      Private versaoDadosField As String
+
+      Private anyAttrField() As System.Xml.XmlAttribute
+
+      '''<remarks/>
+      Public Property cUF() As String
+        Get
+          Return Me.cUFField
+        End Get
+        Set(ByVal value As String)
+          Me.cUFField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      Public Property versaoDados() As String
+        Get
+          Return Me.versaoDadosField
+        End Get
+        Set(ByVal value As String)
+          Me.versaoDadosField = value
+        End Set
+      End Property
+
+      '''<remarks/>
+      <System.Xml.Serialization.XmlAnyAttributeAttribute()> _
+      Public Property AnyAttr() As System.Xml.XmlAttribute()
+        Get
+          Return Me.anyAttrField
+        End Get
+        Set(ByVal value As System.Xml.XmlAttribute())
+          Me.anyAttrField = value
+        End Set
+      End Property
+    End Class
+  End Class
+
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")> _
+  Public Delegate Sub cteInutilizacaoCTCompletedEventHandler(ByVal sender As Object, ByVal e As cteInutilizacaoCTCompletedEventArgs)
+
+  '''<remarks/>
+  <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053"), _
+   System.Diagnostics.DebuggerStepThroughAttribute(), _
+   System.ComponentModel.DesignerCategoryAttribute("code")> _
+  Partial Public Class cteInutilizacaoCTCompletedEventArgs
+    Inherits System.ComponentModel.AsyncCompletedEventArgs
+
+    Private results() As Object
+
+    Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
+      MyBase.New(exception, cancelled, userState)
+      Me.results = results
+    End Sub
+
+    '''<remarks/>
+    Public ReadOnly Property Result() As System.Xml.XmlNode
+      Get
+        Me.RaiseExceptionIfNecessary()
+        Return CType(Me.results(0), System.Xml.XmlNode)
+      End Get
+    End Property
+  End Class
+
+#End Region
 End Namespace

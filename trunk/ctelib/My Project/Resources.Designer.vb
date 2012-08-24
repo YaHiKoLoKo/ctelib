@@ -63,8 +63,20 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         '''&lt;CTeWebServices&gt;
-        '''  
-        '''&lt;/CTeWebServices &gt;.
+        '''  &lt;AC&gt;
+        '''    &lt;cUF&gt;12&lt;/cUF&gt;
+        '''    &lt;Producao&gt;
+        '''      &lt;CTeRecepcao&gt;&lt;/CTeRecepcao&gt;
+        '''      &lt;CTeRetRecepcao&gt;&lt;/CTeRetRecepcao&gt;
+        '''      &lt;CTeCancelamento&gt;&lt;/CTeCancelamento&gt;
+        '''      &lt;CTeInutilizacao&gt;&lt;/CTeInutilizacao&gt;
+        '''      &lt;CTeConsultaProtocolo&gt;&lt;/CTeConsultaProtocolo&gt;
+        '''      &lt;CTeStatusServico&gt;&lt;/CTeStatusServico&gt;
+        '''    &lt;/Producao&gt;
+        '''    &lt;Homologacao&gt;
+        '''      &lt;CTeRecepcao&gt;&lt;/CTeRecepcao&gt;
+        '''      &lt;CTeRetRecepcao&gt;&lt;/CTeRetRecepcao&gt;
+        '''      &lt;CTeCancelamento&gt;&lt;/CTeCancelamen [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property ctews() As String
             Get

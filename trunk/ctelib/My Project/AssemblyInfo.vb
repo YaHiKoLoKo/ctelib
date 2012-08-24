@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("ctelib")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("JMS Contabilidade")> 
+<Assembly: AssemblyCompany("Douglas Alves Domingues")> 
 <Assembly: AssemblyProduct("ctelib")> 
-<Assembly: AssemblyCopyright("Copyright © JMS Contabilidade 2012")> 
+<Assembly: AssemblyCopyright("Copyright © Douglas Alves Domingues 2012")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

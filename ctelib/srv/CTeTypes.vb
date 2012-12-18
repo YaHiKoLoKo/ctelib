@@ -6653,6 +6653,30 @@ Namespace CTe.Types
         Me.versaoField = value
       End Set
     End Property
+
+    Public Function ToXMLNode() As Xml.XmlNode
+      Dim xDoc As New Xml.XmlDocument
+      xDoc.LoadXml(ToString)
+      Return xDoc.DocumentElement
+    End Function
+    Public Overrides Function ToString() As String
+      Dim xs As New XmlSerializer(Me.GetType)
+      Dim xmlns As New XmlSerializerNamespaces
+      xmlns.Add("", "http://www.portalfiscal.inf.br/cte")
+      Dim sw As New IO.StringWriter()
+      'Dim ms As New IO.MemoryStream
+      Dim tmp As String = IO.Path.GetTempFileName
+      Dim sw2 As New IO.StreamWriter(tmp, False, System.Text.Encoding.UTF8)
+      xs.Serialize(sw2, Me, xmlns)
+      Dim xmlDocument As New XmlDocument
+      sw2.Close()
+      xmlDocument.Load(tmp)
+      Dim r As String = xmlDocument.DocumentElement.OuterXml
+      IO.File.Delete(tmp)
+      Return r
+      'xs.Deserialize
+      Return MyBase.ToString()
+    End Function
   End Class
 
   '''<remarks/>
